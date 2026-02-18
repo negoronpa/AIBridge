@@ -13,7 +13,7 @@ const { roomStore } = require('./app/lib/roomStore');
 const { processMessage, generateManualIntervention } = require('./app/lib/aiEngine');
 
 const dev = process.env.NODE_ENV !== 'production';
-const hostname = 'localhost';
+const hostname = '0.0.0.0'; // Allow external connections (Required for Railway/Docker)
 const port = parseInt(process.env.PORT || '3000', 10);
 
 const app = next({ dev, hostname, port });
