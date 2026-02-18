@@ -6,7 +6,8 @@ const { loadEnvConfig } = require('@next/env');
 // Load environment variables before requiring other modules
 const projectDir = process.cwd();
 const env = loadEnvConfig(projectDir);
-console.log(`[Server] Environment loaded from ${projectDir}. API Key present: ${!!process.env.GEMINI_API_KEY}`);
+const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+console.log(`[Server] Environment loaded from ${projectDir}. API Key present: ${!!apiKey}`);
 
 const { Server } = require('socket.io');
 const { roomStore } = require('./app/lib/roomStore');
